@@ -1,22 +1,22 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [status, setStatus] = useState('Not Set');
+
+  async function getStatus() {
+    const response = await axios.get<{status: string}>('/api/status');
+
+    setStatus(String(response.data.status));
+  }
+
+  useEffect(() => {
+    getStatus();
+  }, []);
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p>API Status {status}</p>
     </>
   )
 }
