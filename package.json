@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A home dashboard",
   "main": "server/index.ts",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https//github.com/nishanbajracharya/home-dashboard.git"
