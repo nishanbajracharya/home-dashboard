@@ -18,7 +18,7 @@ function App() {
     <>
       <p>API Status {status}</p>
     </>
-  )
+  );
 }
 
 export default App;
