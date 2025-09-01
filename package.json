@@ -4,6 +4,10 @@
   "description": "A home dashboard",
   "main": "server/index.ts",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https//github.com/nishanbajracharya/home-dashboard.git"
+  },
   "scripts": {
     "start": "npm run start:server",
     "start:server": "tsx watch --tsconfig server/tsconfig.json server/index.ts",
