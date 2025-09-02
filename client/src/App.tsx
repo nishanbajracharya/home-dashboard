@@ -1,13 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+type Link = {
+  name: string;
+  url: string;
+};
+
 function App() {
-  const [status, setStatus] = useState('Not Set');
+  const [links, setLinks] = useState<Link[]>([]);
 
   async function getStatus() {
-    const response = await axios.get<{status: string}>('/api/status');
+    const response = await axios.get<Link[]>('/api/links');
 
-    setStatus(String(response.data.status));
+    setLinks(response.data);
   }
 
   useEffect(() => {
@@ -15,9 +20,11 @@ function App() {
   }, []);
 
   return (
-    <>
-      <p>API Status {status}</p>
-    </>
+    <ul>
+    {
+      links.map(link => <li key={link.url}><a href={link.url} title={link.name} target="_blank" rel="noreferrer">{link.name}</a></li>)
+    }
+    </ul>
   );
 }
 

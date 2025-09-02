@@ -14,8 +14,9 @@
     "start:client": "vite --config client/vite.config.ts",
     "prebuild:server": "npm run build:client",
     "build": "npm run build:server",
-    "build:server": "tsc -p server/tsconfig.json",
+    "build:server": "tsc -p server/tsconfig.json && npm run copy-assets",
     "build:client": "vite build --config client/vite.config.ts",
+    "copy-assets": "cp ./server/content.yml ./server/dist/content.yml",
     "lint": "npm run lint:client && npm run lint:server",
     "lint:client": "eslint client",
     "lint:server": "eslint server",
@@ -43,6 +44,7 @@
     "axios": "^1.11.0",
     "express": "^5.1.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "yaml": "^2.8.1"
   }
 }

@@ -1,0 +1,3 @@
+content:
+  - name: service-name
+    url: service-url

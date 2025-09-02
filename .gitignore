@@ -141,3 +141,9 @@ vite.config.ts.timestamp-*
 
 # docker
 docker-compose.yml
+
+# content
+content.yml
+
+# vscode
+.vscode
