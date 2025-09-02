@@ -31,7 +31,8 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./package.json
 
 # Expose the port the application will run on
-EXPOSE 8081
+ENV SERVER_PORT=3000
+EXPOSE 3000
 
 # Set the command to run the application
 CMD ["node", "server/dist/index.js"]
