@@ -1,4 +1,6 @@
 content:
   - name: service-name
     url: service-url
-    image: path-to-url
+    image:
+      path: image-path
+      location: local or absolute

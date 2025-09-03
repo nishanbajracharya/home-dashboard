@@ -9,7 +9,10 @@ export const DEFAULT_CONTENT_PATH = path.resolve(__dirname, '../content.yml');
 export type Link = {
   name: string;
   url: string;
-  image?: string;
+  image?: {
+    location: 'local' | 'absolute';
+    path: string;
+  };
   port?: number;
 };
 

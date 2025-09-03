@@ -5,7 +5,11 @@ import { LINK_ROOT } from '../constants/links';
 export type Link = {
   name: string;
   url: string;
-  image?: string;
+  image?: {
+    location: 'local' | 'absolute';
+    path: string;
+  };
+  port?: number;
 };
 
 export async function getAll(): Promise<Link[]> {

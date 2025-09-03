@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { IMAGE_ROOT } from './constants/links';
 import { Link, getAll } from './services/links';
 
 function App() {
@@ -17,10 +18,21 @@ function App() {
 
   return (
     <ul>
-      {links.map((link) => (
+      {Array.isArray(links) && links.map((link) => (
         <li key={link.url}>
           <a href={link.url} title={link.name} target="_blank" rel="noreferrer">
-            {link.image ? <img src={link.image} alt={link.name} /> : link.name}
+            {link.image ? (
+              <img
+                src={
+                  link.image.location === 'absolute'
+                    ? link.image.path
+                    : `${IMAGE_ROOT}/${link.image.path}`
+                }
+                alt={link.name}
+              />
+            ) : (
+              link.name
+            )}
           </a>
         </li>
       ))}
