@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import * as linkService from './services/links';
 
 type Link = {
   name: string;
@@ -10,9 +10,9 @@ function App() {
   const [links, setLinks] = useState<Link[]>([]);
 
   async function getStatus() {
-    const response = await axios.get<Link[]>('/api/links');
+    const response = await linkService.getAll();
 
-    setLinks(response.data);
+    setLinks(response);
   }
 
   useEffect(() => {

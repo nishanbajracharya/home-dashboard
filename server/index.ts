@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 
 import router from './routes';
@@ -7,6 +8,8 @@ const app = express();
 
 // Serve the static files from the frontend's build directory
 const frontendBuildPath = 'client/dist';
+
+app.use(cors());
 
 app.use(express.static(frontendBuildPath));
 
