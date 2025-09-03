@@ -13,6 +13,9 @@ app.use(cors());
 
 app.use(express.static(frontendBuildPath));
 
+const imagesPath = 'server/images';
+app.use('/images', express.static(imagesPath));
+
 // Your API routes should be prefixed to avoid conflicts with frontend routes
 app.use('/api', router);
 

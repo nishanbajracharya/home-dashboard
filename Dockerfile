@@ -29,6 +29,7 @@ COPY --from=build /app/client/dist ./client/dist
 COPY --from=build /app/server/dist ./server/dist
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./package.json
+COPY --from=build /app/server/images ./server/images
 
 # Expose the port the application will run on
 ENV SERVER_PORT=3000

@@ -2,9 +2,10 @@ import axios from 'axios';
 
 import { LINK_ROOT } from '../constants/links';
 
-type Link = {
+export type Link = {
   name: string;
   url: string;
+  image?: string;
 };
 
 export async function getAll(): Promise<Link[]> {

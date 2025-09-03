@@ -147,3 +147,6 @@ content.yml
 
 # vscode
 .vscode
+
+# mac
+.DS_Store
