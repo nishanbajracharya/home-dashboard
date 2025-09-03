@@ -17,26 +17,38 @@ function App() {
   }, []);
 
   return (
-    <ul>
-      {Array.isArray(links) && links.map((link) => (
-        <li key={link.url}>
-          <a href={link.url} title={link.name} target="_blank" rel="noreferrer">
-            {link.image ? (
-              <img
-                src={
-                  link.image.location === 'absolute'
-                    ? link.image.path
-                    : `${IMAGE_ROOT}/${link.image.path}`
-                }
-                alt={link.name}
-              />
-            ) : (
-              link.name
-            )}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <main className="container">
+      <div className="link-wrapper">
+        <div className="grid">
+          {Array.isArray(links) &&
+            links.map((link) => (
+              <div key={link.url} className="link">
+                <a
+                  href={link.url}
+                  title={link.name}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-url"
+                >
+                  {link.image ? (
+                    <img
+                      className="link-img"
+                      src={
+                        link.image.location === 'absolute'
+                          ? link.image.path
+                          : `${IMAGE_ROOT}/${link.image.path}`
+                      }
+                      alt={link.name}
+                    />
+                  ) : (
+                    link.name
+                  )}
+                </a>
+              </div>
+            ))}
+        </div>
+      </div>
+    </main>
   );
 }
 

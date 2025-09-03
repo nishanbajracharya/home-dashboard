@@ -1,0 +1,12 @@
+.link-wrapper {
+  margin: 2em 0;
+}
+
+.link .link-img {
+  max-height: 128px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+}
